@@ -73,13 +73,53 @@ Obtain the machine code: Click the "About" button in the program interface and c
 **Message Sending Example**
 
 ```JSON
-
+{
+  "mcode": "YOUR_MACHINE_CODE",  // Machine code
+  "app": "dingtalk",            // Application type (dingtalk/wechat/qq/feishu)
+  "data": [
+    // Send text message
+    {
+      "c": "Group Name 1",
+      "m": "Test Message 01",
+      "t": "text"  // Message type: text/file/img
+    },
+    
+    // Send file (URL format)
+    {
+      "c": "Group Name 2",
+      "m": "http://msg.fx-i.cn:85/aibot.txt",
+      "t": "file"
+    },
+    
+    // Send multiple messages to the same recipient
+    {
+      "c": "Group Name 3",
+      "d": [
+        { "m": "Test Message 1", "t": "text" },
+        { "m": "http://example.com/image.png", "t": "img" }
+      ]
+    }
+  ]
+}
 ```
 
 **Response Example**
 
 ```JSON
-
+{
+  "code": 1,
+  "msg": "Robot is offline, messages have been temporarily stored in the queue",
+  "data": {
+    "robot_online": 0,
+    "queue_msg_count": 3,
+    "stats": {
+      "total_in": "234",          // Total received messages
+      "total_out": "225",         // Total sent messages
+      "create_time": "2025-12-02 15:55:45",
+      "update_time": "2025-12-05 09:11:54"
+    }
+  }
+}
 ```
 
 ## Notes & Limitations
