@@ -73,13 +73,62 @@
 **消息发送示例**
 
 ```JSON
+请求json:
+{
+	"mcode":"机器码",
+	"app":"dingtalk",
+	"data":[
+		{
+			"c":"群名1",
+			"m":"测试消息01",
+			"t":"text" //文字
+		},
+		{
+			"c":"群名2",
+			"m":"http:\/\/msg.fx-i.cn:85\/aibot.txt",
+			"t":"file" //文件
+		},
+		{
+			"c":"群名3",
+			"d":[ //同一接收人，可按此格式发送
+				{
+					"m":"测试消息1",
+					"t":"text" //文字
+				},
+				{
+					"m":"http:\/\/msg.fx-i.cn:85\/aibot.txt",
+					"t":"file"
+				},
+				{
+					"m":"http:\/\/msg.fx-i.cn:85\/aibot.png",
+					"t":"img" //图片
+				}
+			]
+		}
+	]
+}
+
 
 ```
 
 **返回结果示例**
 
 ```JSON
-
+返回json
+{
+	"code":1,
+	"msg":"机器人不在线，消息已暂存队列",
+	"data":{
+		"robot_online":0,
+		"queue_msg_count":3,//消息数
+		"stats":{
+			"total_in":"234",//总接收消息数
+			"total_out":"225", //总发送消息数
+			"create_time":"2025-12-02 15:55:45",
+			"update_time":"2025-12-05 09:11:54"
+		}
+	}
+}
 ```
 
 ## 注意事项与限制
