@@ -81,14 +81,16 @@ Obtain the machine code: Click the "About" button in the program interface and c
     {
       "c": "Group Name 1",
       "m": "Test Message 01",
-      "t": "text"  // Message type: text/file/img
+      "t": "text",  // Message type: text/file/img
+      "g":1 //1 group;0 person
     },
     
     // Send file (URL format)
     {
-      "c": "Group Name 2",
+      "c": "contact",
       "m": "http://msg.fx-i.cn:85/aibot.txt",
-      "t": "file"
+      "t": "file",
+      "g":0
     },
     
     // Send multiple messages to the same recipient
@@ -97,7 +99,8 @@ Obtain the machine code: Click the "About" button in the program interface and c
       "d": [
         { "m": "Test Message 1", "t": "text" },
         { "m": "http://example.com/image.png", "t": "img" }
-      ]
+      ],
+      "g":1
     }
   ]
 }
